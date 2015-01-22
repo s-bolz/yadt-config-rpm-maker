@@ -60,7 +60,11 @@ class SvnService(object):
 
         log_entries = self.get_logs_for_revision(revision)
         for info in log_entries:
-            LOGGER.info('Commit message is "%s" (%s, %s)', info.message.strip(), info.author, ctime(info.date))
+            if info.author is None:
+                author = info.author
+            else
+                author = 'unknown'
+            LOGGER.info('Commit message is "%s" (%s, %s)', info.message.strip(), author, ctime(info.date))
 
     def get_logs_for_revision(self, revision):
         """ Returns the logs for the given revision of the repository at the config_url """
