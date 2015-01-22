@@ -60,10 +60,10 @@ class SvnService(object):
 
         log_entries = self.get_logs_for_revision(revision)
         for info in log_entries:
-            if info.author is None:
-                author = info.author
+            if 'author' in info:
+                author = info['author']
             else:
-                author = 'unknown'
+                author = 'unknown_author'
             LOGGER.info('Commit message is "%s" (%s, %s)', info.message.strip(), author, ctime(info.date))
 
     def get_logs_for_revision(self, revision):
