@@ -62,7 +62,7 @@ class SvnService(object):
         for info in log_entries:
             if info.author is None:
                 author = info.author
-            else
+            else:
                 author = 'unknown'
             LOGGER.info('Commit message is "%s" (%s, %s)', info.message.strip(), author, ctime(info.date))
 
