@@ -22,7 +22,7 @@ set -e
 function install_dependencies() {
   # Enable EPEL repository
   wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
-  sudo rpm -ivH epel-release-6*.rpm
+  sudo yum localinstall epel-release-6-8.noarch.rpm -y
 
   # Install build dependencies
   sudo yum install python-devel python-setuptools python-mock mock -y
